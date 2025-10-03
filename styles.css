@@ -45,6 +45,9 @@ header.site {
   width: 84px;
   /* keep the avatar square across layouts */
   aspect-ratio: 1 / 1;
+  /* fallback for browsers without aspect-ratio: set explicit height and prevent flex growth */
+  height: 84px;
+  flex: 0 0 84px;
   border-radius: 12px;
   background: linear-gradient(135deg, var(--accent-2), #ffd88a);
   display: flex;
@@ -220,6 +223,8 @@ footer {
   .avatar {
     width: 68px;
     aspect-ratio: 1 / 1;
+    height: 68px;
+    flex: 0 0 68px;
   }
   .grid {
     grid-template-columns: 1fr;
