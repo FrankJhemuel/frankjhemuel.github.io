@@ -1,189 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Frank Jhemuel Villanueva — Portfolio</title>
-  <meta name="description" content="Frank Jhemuel Villanueva — Mechatronics & Digital Automation engineering student. Software Division Leader @ ProjectRED." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f7f9fc; --card:#ffffff; --muted:#6b7280; --accent:#0f172a; --accent-2:#ffd60a;
-      --glass: rgba(255,255,255,0.6);
-    }
-    [data-theme="dark"]{ --bg:#0b1220; --card:#071027; --muted:#9aa6bf; --accent:#e6eef8; --accent-2:#ffd60a; --glass: rgba(255,255,255,0.03); }
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; margin:0; background:linear-gradient(180deg,var(--bg),#eaf0f8); color:var(--accent); -webkit-font-smoothing:antialiased;}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    header.site{display:flex;align-items:center;gap:18px;justify-content:space-between;margin-bottom:18px}
-    .brand{display:flex;gap:14px;align-items:center}
-    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),#ffd88a);display:flex;align-items:center;justify-content:center;color:#071027;font-weight:800;font-size:26px}
-    h1{margin:0;font-size:1.45rem}
-    p.lead{margin:0;color:var(--muted)}
-    nav.top{display:flex;gap:10px;align-items:center}
-    a.btn{background:var(--card);border-radius:8px;padding:8px 12px;text-decoration:none;color:var(--accent);box-shadow:0 6px 18px rgba(15,23,42,0.06);font-weight:600}
-    a.icon{display:inline-flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;color:var(--accent);background:var(--glass);}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frank Jhemuel Villanueva — Portfolio</title>
+    <meta
+      name="description"
+      content="Frank Jhemuel Villanueva — Mechatronics & Digital Automation engineering student. Software Division Leader @ ProjectRED."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Theme initialization to avoid a flash of the wrong theme.
+      // Priority: saved localStorage -> system preference -> default dark
+      (function () {
+        try {
+          const saved = localStorage.getItem('theme');
+          const prefersDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    main{display:grid;grid-template-columns:1fr 340px;gap:26px;align-items:start}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
-    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    h2{margin:0;font-size:1.05rem}
-    .about p{color:var(--muted);line-height:1.5}
-    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .meta .pill{background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent);}
-
-    .projects .project{border-radius:10px;padding:12px;margin-bottom:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.01));}
-    .project h3{margin:0;font-size:0.98rem}
-    .project p{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
-
-    .contact-list{display:flex;flex-direction:column;gap:8px}
-    .contact-list a{color:var(--accent);text-decoration:none;font-weight:600}
-
-    aside .card + .card{margin-top:18px}
-    .socials{display:flex;gap:8px;flex-wrap:wrap}
-    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;background:var(--glass)}
-
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:0.9rem}
-
-    /* small screens */
-    @media (max-width:980px){main{grid-template-columns:1fr;}.avatar{width:68px;height:68px}}
-
-    /* little utilities */
-    .muted{color:var(--muted)}
-    .small{font-size:0.9rem}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);font-weight:700}
-
-    .top-actions{display:flex;gap:8px;align-items:center}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header class="site">
-      <div class="brand">
-        <div class="avatar">FJ</div>
-        <div>
-          <h1>Frank Jhemuel Villanueva</h1>
-          <p class="lead">Mechatronics engineer • M.Sc. candidate (Digital Automation) • Software Division Leader @ ProjectRED</p>
-        </div>
-      </div>
-
-      <div class="top-actions">
-        <button id="themeToggle" class="btn" aria-label="Toggle theme">Toggle theme</button>
-        <a class="btn" href="#contact">Contact</a>
-        <a class="btn" href="cv.pdf" target="_blank">Download CV</a>
-      </div>
-    </header>
-
-    <main>
-      <section>
-        <div class="card about">
-          <div class="section-title"><h2>About</h2><span class="muted small">Based in Modena, Italy</span></div>
-          <p>
-            I am a graduate of the Laurea Triennale in Mechatronics Engineering and currently a first-year Laurea Magistrale student in Digital Automation Engineering at UNIMORE. I work as the Software Division Leader for ProjectRED, where I focus on navigation, perception, and system integration for rover platforms.
-          </p>
-
-          <div class="meta" style="margin-top:16px">
-            <div class="pill">Languages: Tagalog • English • Italian</div>
-            <div class="pill">Programming: C++ • Python • Java</div>
-            <div class="pill">Location: Modena, Italy</div>
-            <div class="pill" title="Arrival in Italy: July 2017">In Italy: <span id="yearsInItaly">—</span></div>
+          if (saved === 'light') {
+            document.documentElement.removeAttribute('data-theme');
+          } else if (saved === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else if (prefersDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            // fallback default: dark (keeps previous behaviour)
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {
+          // ignore (e.g., localStorage not available)
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="site">
+        <div class="brand">
+          <div class="avatar">
+            <img
+              src="images/pfp.jpg"
+              alt="FJ"
+              style="
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                object-fit: cover;
+              "
+            />
+          </div>
+          <div>
+            <h1>Frank Jhemuel Villanueva</h1>
+            <p class="lead">
+              Mechatronics engineer • M.Sc. student (Digital Automation) •
+              Software Division Leader @ ProjectRED
+            </p>
           </div>
         </div>
 
-        <div class="card" style="margin-top:18px">
-          <div class="section-title"><h2>Career & Education</h2><span class="muted small">UNIMORE • ProjectRED</span></div>
-          <p class="small muted" style="margin:0 0 8px">Graduate — Laurea Triennale in Mechatronics Engineering. Currently enrolled in Laurea Magistrale (Digital Automation Engineering) at UNIMORE.</p>
-          <div class="grid">
-            <div>
-              <h3 style="margin:6px 0 6px">Software Division Leader</h3>
-              <p class="muted small" style="margin:0">ProjectRED — leading software development for rover navigation and autonomy.</p>
+        <div class="top-actions">
+          <button id="themeToggle" class="btn" aria-label="Toggle theme">
+            🌙
+          </button>
+          <!-- <a class="btn" href="#contact">Contact</a> -->
+        </div>
+      </header>
+
+      <main>
+        <section>
+          <div class="card about">
+            <div class="section-title">
+              <h2>About</h2>
+              <span class="muted small">Based in Modena, Italy</span>
             </div>
-            <div>
-              <h3 style="margin:6px 0 6px">Thesis (current)</h3>
-              <p class="muted small" style="margin:0">Sviluppo di un’algoritmo di navigazione visual-based per un rover a guida autonoma.</p>
+            <p>
+              I am a graduate of the Laurea Triennale in Mechatronics
+              Engineering and currently a first-year Laurea Magistrale student
+              in Digital Automation Engineering at UNIMORE. I work as the
+              Software Division Leader for ProjectRED, where I focus on
+              navigation, perception, and system integration for rover
+              platforms.
+            </p>
+
+            <div class="meta" style="margin-top: 16px">
+              <div class="pill">Languages: Tagalog • English • Italian</div>
+              <div class="pill">Programming: C++ • Python • Java</div>
+              <div class="pill">Location: Modena, Italy</div>
             </div>
           </div>
-        </div>
 
-        <div class="card projects" style="margin-top:18px">
-          <div class="section-title"><h2>Projects</h2><span class="muted small">Selected</span></div>
-
-          <div class="project">
-            <h3>Thesis — Visual-based navigation for autonomous rover</h3>
-            <p>Developing a visual navigation algorithm for a rover capable of waypoint navigation and obstacle avoidance — integrating with ROS2 and real-time perception modules.</p>
-          </div>
-
-          <div class="project">
-            <h3>ProjectRED — Rover Software</h3>
-            <p>Software development and integration for rover autonomy, mapping, and mission planning, targeting the European Rover Challenge.</p>
-          </div>
-        </div>
-
-      </section>
-
-      <aside>
-        <div class="card">
-          <div class="section-title"><h2>Contact</h2><span class="muted small">Reach out</span></div>
-          <div class="contact-list">
-            <div><strong>University:</strong> <a href="mailto:320068@studenti.unimore.it">320068@studenti.unimore.it</a></div>
-            <div><strong>Personal:</strong> <a href="mailto:frankjhemuelvillanueva@gmail.com">frankjhemuelvillanueva@gmail.com</a></div>
-            <div><strong>GitHub:</strong> <a href="https://github.com/FrankJhemuel" target="_blank">github.com/FrankJhemuel</a></div>
-          </div>
-
-          <div style="margin-top:12px">
-            <div class="section-title"><h2>Socials</h2><span class="muted small">Follow</span></div>
-            <div class="socials">
-              <a href="https://www.linkedin.com/in/frank-jhemuel-villanueva-04b420296" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-              <a href="https://github.com/FrankJhemuel" target="_blank" aria-label="GitHub">GitHub</a>
-              <a href="https://www.instagram.com/frank.jhem" target="_blank" aria-label="Instagram">Instagram</a>
-              <a href="https://www.facebook.com/frankjhemuel.villanueva" target="_blank" aria-label="Facebook">Facebook</a>
+          <div class="card" style="margin-top: 18px">
+            <div class="section-title">
+              <h2>Career & Education</h2>
+              <span class="muted small">UNIMORE • ProjectRED</span>
+            </div>
+            <h3 style="margin: 6px 0 6px">University</h3>
+            <p class="small muted" style="margin: 0 0 8px">
+              Graduate — Laurea Triennale in Mechatronics Engineering. 
+              Currently enrolled in Laurea Magistrale (Digital Automation Engineering) at
+              UNIMORE.
+            </p>
+            <div class="grid">
+              <div>
+                <h3 style="margin: 6px 0 6px">Software Division Leader</h3>
+                <p class="muted small" style="margin: 0">
+                  ProjectRED — leading software development for rover navigation
+                  and autonomy.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="section-title"><h2>Quick links</h2><span class="muted small">Resources</span></div>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <a class="icon" href="#projects">Projects</a>
-            <a class="icon" href="cv.pdf" target="_blank">Download CV (cv.pdf)</a>
-            <a class="icon" href="#contact">Contact</a>
-            <a class="icon" href="https://github.com/FrankJhemuel" target="_blank">My GitHub</a>
+          <div class="card projects" style="margin-top: 18px">
+            <div class="section-title"><h2>Projects</h2></div>
+            <!-- <span class="muted small">Selected</span></div> -->
+
+            <div class="project">
+              <h3>Thesis — Visual-based navigation for autonomous rover</h3>
+              <p>
+                Developing a visual navigation algorithm for a rover capable of
+                waypoint navigation and obstacle avoidance — integrating with
+                ROS2 and real-time perception modules.
+              </p>
+            </div>
+
+            <div class="project">
+              <h3>ProjectRED — Rover Software</h3>
+              <p>
+                Software development and integration for rover autonomy,
+                mapping, and mission planning, targeting the European Rover
+                Challenge.
+              </p>
+            </div>
           </div>
+        </section>
+
+        <aside>
+          <div class="card" id="contact">
+            <div class="section-title">
+              <h2>Contact</h2>
+              <span class="muted small">Reach out</span>
+            </div>
+            <div class="contact-list">
+              <div>
+                <strong>University:</strong>
+                <a href="mailto:320068@studenti.unimore.it"
+                  >320068@studenti.unimore.it</a
+                >
+              </div>
+              <div>
+                <strong>Personal:</strong>
+                <a href="mailto:frankjhemuelvillanueva@gmail.com"
+                  >frankjhemuelvillanueva@gmail.com</a
+                >
+              </div>
+            </div>
+
+            <div style="margin-top: 12px">
+              <div class="section-title">
+                <h2>Socials</h2>
+                <span class="muted small">Links</span>
+              </div>
+              <div class="socials">
+                <a
+                  href="https://www.linkedin.com/in/frank-jhemuel-villanueva-04b420296"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+                <a href="https://github.com/FrankJhemuel" target="_blank"
+                  >GitHub</a
+                >
+                <a href="https://www.instagram.com/frank.jhem" target="_blank"
+                  >Instagram</a
+                >
+                <a
+                  href="https://www.facebook.com/frankjhemuel.villanueva"
+                  target="_blank"
+                  >Facebook</a
+                >
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <footer>
+        <div class="muted small">
+          © <span id="yearNow"></span> Frank Jhemuel Villanueva — Built with
+          GitHub Pages
         </div>
+      </footer>
+    </div>
 
-      </aside>
-    </main>
+    <script>
+      // theme toggle with moon/sun icon
+      (function () {
+        const btn = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const saved = (() => {
+          try {
+            return localStorage.getItem('theme');
+          } catch (e) {
+            return null;
+          }
+        })();
 
-    <footer>
-      <div class="muted small">© <span id="yearNow"></span> Frank Jhemuel Villanueva — Built with GitHub Pages</div>
-    </footer>
-  </div>
+        function updateButton() {
+          const isDark = root.getAttribute('data-theme') === 'dark';
+          btn.textContent = isDark ? '☀️' : '🌙';
+        }
 
-  <script>
-    // compute years in Italy since July 2017
-    (function(){
-      const arrival = new Date(2017,6,1); // July = month 6 (0-indexed). Use day 1 as approximate
-      const now = new Date();
-      let years = now.getFullYear() - arrival.getFullYear();
-      const m = now.getMonth() - arrival.getMonth();
-      if (m < 0 || (m === 0 && now.getDate() < arrival.getDate())) years--;
-      document.getElementById('yearsInItaly').textContent = years + (years === 1 ? ' year' : ' years');
-      document.getElementById('yearNow').textContent = now.getFullYear();
-    })();
+        // Ensure initial icon matches the applied theme
+        updateButton();
 
-    // theme toggle
-    (function(){
-      const btn = document.getElementById('themeToggle');
-      const root = document.documentElement;
-      const saved = localStorage.getItem('theme');
-      if(saved === 'dark') root.setAttribute('data-theme','dark');
-      btn.addEventListener('click', ()=>{
-        const isDark = root.getAttribute('data-theme') === 'dark';
-        if(isDark){ root.removeAttribute('data-theme'); localStorage.setItem('theme','light'); }
-        else { root.setAttribute('data-theme','dark'); localStorage.setItem('theme','dark'); }
-      });
-    })();
-  </script>
-</body>
+        btn.addEventListener('click', () => {
+          const isDark = root.getAttribute('data-theme') === 'dark';
+          if (isDark) {
+            root.removeAttribute('data-theme');
+            try {
+              localStorage.setItem('theme', 'light');
+            } catch (e) {}
+            btn.textContent = '🌙';
+          } else {
+            root.setAttribute('data-theme', 'dark');
+            try {
+              localStorage.setItem('theme', 'dark');
+            } catch (e) {}
+            btn.textContent = '☀️';
+          }
+        });
+
+        // If the user hasn't chosen a theme, follow system changes live.
+        if (!saved && window.matchMedia) {
+          const mq = window.matchMedia('(prefers-color-scheme: dark)');
+          const listener = (e) => {
+            // Only change if user hasn't explicitly chosen a theme
+            try {
+              if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                  root.setAttribute('data-theme', 'dark');
+                } else {
+                  root.removeAttribute('data-theme');
+                }
+                updateButton();
+              }
+            } catch (err) {
+              // ignore
+            }
+          };
+          if (typeof mq.addEventListener === 'function') {
+            mq.addEventListener('change', listener);
+          } else if (typeof mq.addListener === 'function') {
+            mq.addListener(listener);
+          }
+        }
+      })();
+    </script>
+  </body>
 </html>
