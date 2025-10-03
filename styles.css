@@ -43,7 +43,8 @@ header.site {
 }
 .avatar {
   width: 84px;
-  height: 84px;
+  /* keep the avatar square across layouts */
+  aspect-ratio: 1 / 1;
   border-radius: 12px;
   background: linear-gradient(135deg, var(--accent-2), #ffd88a);
   display: flex;
@@ -52,6 +53,15 @@ header.site {
   color: #071027;
   font-weight: 800;
   font-size: 26px;
+  overflow: hidden;
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 h1 {
   margin: 0;
@@ -209,7 +219,7 @@ footer {
   }
   .avatar {
     width: 68px;
-    height: 68px;
+    aspect-ratio: 1 / 1;
   }
   .grid {
     grid-template-columns: 1fr;
