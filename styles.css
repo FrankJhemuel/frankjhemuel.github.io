@@ -67,16 +67,7 @@ header.site {
   border-radius: inherit;
 }
 
-/* Higher-specificity constraints to prevent enlargement on some mobile browsers */
-header.site .brand .avatar {
-  width: 84px !important;
-  height: 84px !important;
-  min-width: 84px !important;
-  min-height: 84px !important;
-  max-width: 84px !important;
-  max-height: 84px !important;
-  flex: 0 0 84px !important;
-}
+/* (reverted) */
 h1 {
   margin: 0;
   font-size: 1.45rem;
